@@ -5,10 +5,7 @@ import org.apache.commons.csv.CSVRecord;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by LaunchCode
@@ -102,10 +99,13 @@ public class JobData {
 
         for (HashMap<String, String> job : allJobs) {
 
-            for (String info : job.values());
-
-                if (job.values().contains(value)) {
+            for (Map.Entry<String, String> row : job.entrySet()) {
+              String lowerCaseValue = value.toLowerCase();
+              String entry = row.getValue();
+              String lowerCaseEntry = entry.toLowerCase();
+                if (lowerCaseEntry.contains(lowerCaseValue)) {
                     jobs.add(job);
+                }
             }
         }
         // TODO - implement this method
