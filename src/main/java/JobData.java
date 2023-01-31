@@ -102,18 +102,17 @@ public class JobData {
         for (HashMap<String, String> job : allJobs) {
 
             for (Map.Entry<String, String> row : job.entrySet()) {
-              String lowerCaseValue = value.toLowerCase();
-              String entry = row.getValue();
-              String lowerCaseEntry = entry.toLowerCase();
-                if (lowerCaseEntry.contains(lowerCaseValue)) {
+                String lowerCaseValue = value.toLowerCase();
+                String entry = row.getValue();
+                String lowerCaseEntry = entry.toLowerCase();
+                if (lowerCaseEntry.contains(lowerCaseValue) && !jobs.contains(job)) {
                     jobs.add(job);
                 }
             }
+            // TODO - implement this method
         }
-        // TODO - implement this method
         return jobs;
     }
-
     /**
      * Read in data from a CSV file and store it in a list
      */
